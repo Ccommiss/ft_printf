@@ -1,0 +1,14 @@
+Notions :
+
+
+
+§ Variadic functions
+
+
+
+§ designated initializer :
+
+
+In (ANSI) C99, you can use a designated initializer to initialize a structure:
+MY_TYPE a = { .flag = true, .value = 123, .stuff = 0.456 };
+

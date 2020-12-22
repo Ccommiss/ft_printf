@@ -4,7 +4,7 @@
 
 enum fnames { //pour gerer les conversions apres et les casts
 
-    fint = 1, fchar, fstr
+    fint = 1, fchar, fstr, fadd
 }	my_enum;
 
 
@@ -17,9 +17,12 @@ typedef struct s_data {
 	int len; //sera equivalent a strlen de la string // la chaine de carac de l'elem
 
 	char precision[12]; //pour le flag . -> max 11 chiffres apres le point
+	char twidth[12]; // pour gerer la width (avant le point)
+	int point;
 	int zero; // mettre a 0 par defaut, 1 s'il y a un zero
 	int minus; // met a gauche
 	int wildcard; // a remplacer
+	int width; //chiffre sans autre truc
 	func f[10];
 	struct data *next; // pt sur le prochain
 

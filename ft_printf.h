@@ -30,3 +30,10 @@ typedef struct s_data {
 
 
 void ft_reset_flags(t_data *data);
+void ft_convertadd(t_data *data, va_list *args);
+void ft_convertchar(t_data *data, va_list *args);
+void ft_handle_spaces(t_data *data, char *str);
+void ft_convertints(t_data *data, va_list *args);
+void ft_convertstr(t_data *data, va_list *args);
+void ft_converthex(t_data *data, uintptr_t input);
+int		ft_table(char type);

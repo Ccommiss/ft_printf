@@ -4,6 +4,8 @@ SRCS = ft_printf.c \
 		handle_d.c \
 		handle_p.c \
 		handle_s.c \
+		handle_x.c \
+		utils.c
 
 FLAGS = -Wall -Werror -Wextra -I./libft/
 OBJS = $(SRCS:.c=.o)

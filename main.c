@@ -448,6 +448,9 @@ void ft_test_percent()
     printf("ret = %d\n", printf("%%p::[%01.50d]\n", -8473));
     printf("ret = %d\n", ft_printf("%%p::[%01.50d]\n", -8473));
 
+	printf(" --- Return : %d\n", printf("%p, %x, %p, %x, %p, %x, %p, %x", (void *)209590960, 209590960, (void *)207038912, 207038912, (void *)1, 1, NULL, 0)); //T347
+	ft_printf(" --- Return : %d\n", ft_printf("%p, %x, %p, %x, %p, %x, %p, %x", (void *)209590960, 209590960, (void *)207038912, 207038912, (void *)1, 1, NULL, 0)); //T347
+
 	// 	ft_printf("pp %.50d\n", 10000);
 	// 	printf("pp %.50d\n", 10000);
 	// ft_printf("p1 %.4s\n", "cccc");

@@ -11,13 +11,15 @@ void ft_handle_spaces(t_data *data, char *str)
 	if (str[0] == '-' && data->point == 1)
 		precision = precision + 1;
 
+
+
 	//if (str[0] == '-')
 		//width = width - 1;
 //	(data->len != 0 && data->buff[data->len - 1] == '-') ? (width = width - 1) : (width);
 	len_str = (int)ft_strlen(str);
 	i = 0;
 	//exception si precison = 0 et nb = 0 : ca ne renvoie rien
-	if (len_str == 1 && str[0] == '0' && precision == 0)
+	if (len_str == 1 && str[0] == '0' && data->point == 1 && precision == 0)
 	{
 		str[0] = '\0';
 		if (width != 0)
@@ -56,7 +58,7 @@ void ft_handle_spaces(t_data *data, char *str)
 				write_buff(data, ' ');
 		if ((data->zero == 1 || data->point == 1) && str[0] == '-' && str++)//test pour mettre le - avabnt les 0
 			write_buff(data, '-');
-		while (precision - len_str++ > 0)
+		while (precision - len_str++ > 0) //????
 			write_buff(data, '0');
 		while (*str != '\0')
 			write_buff(data, *str++);

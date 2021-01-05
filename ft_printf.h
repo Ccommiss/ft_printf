@@ -13,7 +13,7 @@
 
 enum fnames { //pour gerer les conversions apres et les casts
 
-    fint = 1, fchar, fstr, fadd, fhex, fhexU, fpercent, wrong
+    fint = 1, fchar, fstr, fadd, fhex, fhexU, fpercent, funsigned, wrong
 }	my_enum;
 
 
@@ -25,7 +25,7 @@ typedef struct s_data {
 	char buff[2048];
 	int len; //sera equivalent a strlen de la string // la chaine de carac de l'elem
 
-	char precision[12]; //pour le flag . -> max 11 chiffres apres le point
+	char precision[12]; //pour le flag . et le 0 -> max 11 chiffres apres le point
 	char twidth[12]; // pour gerer la width (avant le point)
 	int point;
 	int zero; // mettre a 0 par defaut, 1 s'il y a un zero
@@ -49,6 +49,7 @@ void ft_reset_flags(t_data *data);
 void ft_convertadd(t_data *data, va_list *args);
 void ft_convertchar(t_data *data, va_list *args);
 void ft_convertints(t_data *data, va_list *args);
+void ft_convertunsignedints(t_data *data, va_list *args);
 void ft_convertstr(t_data *data, va_list *args);
 void ft_converthex(t_data *data, va_list *args);
 void ft_converthexU(t_data *data, va_list *args);

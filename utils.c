@@ -36,7 +36,10 @@ int ft_analyse(t_data *data, char flag) //faire une fonction reset pour le proch
 	else if (flag == '*')
 		data->wildcard = 1;
 	else if (flag == '-')
+	{
 		data->minus = 1;
+		data->zero = 0;
+	}
 	else if (flag == '.')
 		data->point = 1;
 	else if (flag == 'w')
@@ -59,8 +62,10 @@ int ft_analyse(t_data *data, char flag) //faire une fonction reset pour le proch
 
 int ft_table(char type)
 {
-	if (type == 'd' || type == 'i' || type == 'u') //u provisoire
+	if (type == 'd' || type == 'i') //u provisoire
 		return (fint);
+	if (type == 'u')
+		return (funsigned);
 	if (type == 's')
 		return (fstr);
 	if (type == 'c')
@@ -99,8 +104,8 @@ void init_printf(t_data *data)
 	data->f[fhex] = (func)&ft_converthex;
 	data->f[fhexU] = (func)&ft_converthexU;
 	data->f[fpercent] = (func)&ft_percent;
+	data->f[funsigned] = (func)&ft_convertunsignedints;
 	data->f[wrong] = (func)&ft_wrong;
-//	data->zero = 0; je crois c inutile
 	data->ret = 0;
 	//ft_bzero((void *)data->precision, 12); //idem car dans reset flag
 //	ft_bzero((void *)data->twidth, 12);

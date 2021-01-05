@@ -6,25 +6,28 @@ void ft_test_char()
 	int ret1;
 	int ret2;
 
+	
+
 	printf("\n\n");
 	printf("%50s", GREEN "[[		_________		]]\n" NONE);
 	printf("%50s", GREEN "[[		Tests CHAR		]]\n" NONE);
 	printf("%50s", GREEN "[[		_________		]]\n" NONE);
 	printf("\n\n");
 
-	ret1 = ft_printf("yo %s lol la vie est %s\n", "hello", "belle");
+//	ret1 = ft_printf("yo %s lol la vie est %s\n", "hello", "belle");
 
-	ret1 = ft_printf("Test 1 : %c kiki\n", 'p');
-	ret2 = printf("Test 1 : %c kiki\n", 'p');
-	printf("\n MY RET = %d\n VS REAL RET = %d\n", ret1, ret2);
+	//ret1 = ft_printf("Test 1 : %c kiki\n", 'p');
+	//ret2 = printf("Test 1 : %c kiki\n", 'p');
+	//printf("\n MY RET = %d\n VS REAL RET = %d\n", ret1, ret2);
 
-	ret1 = ft_printf("Test 2 : %25c kiki\n", 'p');
-	ret2 = printf("Test 2 : %25c kiki\n", 'p');
-	printf("\n MY RET = %d\n VS REAL RET = %d\n", ret1, ret2);
+	//ret1 = ft_printf("Test 2 : %25c kiki\n", 'p');
+	//ret2 = printf("Test 2 : %25c kiki\n", 'p');
+	//printf("\n MY RET = %d\n VS REAL RET = %d\n", ret1, ret2);
 
+	ret2 = printf("Test 1 : 42%-4c42 kiki\n", 'p');
 	ret1 = ft_printf("Test 1 : 42%-4c42 kiki\n", 'p');
 	ret2 = printf("Test 1 : 42%-4c42 kiki\n", 'p');
-	printf("\n MY RET = %d\n VS REAL RET = %d\n", ret1, ret2);
+	//printf("\n MY RET = %d\n VS REAL RET = %d\n", ret1, ret2);
 
 	ret1 = ft_printf("Test 1 : 42%-4.3c42 kiki\n", 'p');
 	ret2 = printf("Test 1 : 42%-4.3c42 kiki\n", 'p');
@@ -62,6 +65,86 @@ void ft_test_int()
 	printf("%50s", YELLOW "[[		Tests INT		]]\n" NONE);
 	printf("%50s", YELLOW "[[		_________		]]\n" NONE);
 	printf("\n\n");
+
+	int		a = -4;
+	int		b = 0;
+	char	c = 'a';
+	int		d = 2147483647;
+	int		e = -2147483648;
+	int		f = 42;
+	int		g = 25;
+	int		h = 4200;
+	int		i = 8;
+	int		j = -12;
+	int		k = 123456789;
+	int		l = 0;
+	int		m = -12345678;
+
+	printf("Test 0 :\n");
+    printf("ret = %d\n", printf("%%p::[%010.1d]\n", -8473));
+    printf("ret = %d\n", ft_printf("%%p::[%010.1d]\n", -8473));
+
+
+	// 	while (a < 5) //T34-69
+	// {
+	// 	printf ("A = %d\n", a);
+	// 	printf("%*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
+	// 	ft_printf("%*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d\n\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
+		
+	// 	// a = -2, i = 8
+	// 	printf("%0*i, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
+	// 	ft_printf("%0*i, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d\n\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
+		
+	// 	printf("%-*i, %-*d, %-*d, %-*d, %-*d, %-*d, %-*d, %-*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
+	// 	ft_printf("%-*i, %-*d, %-*d, %-*d, %-*d, %-*d, %-*d, %-*d\n\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
+		
+	// 	printf("%.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
+	// 	ft_printf("%.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d\n\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
+	// 	a++;
+	// }
+
+		a = 2;
+	//while(a < 5) //T70-177
+//	{
+		b = -2;
+		printf("POURC D TEST A = 2 B = 1 |%2.1d|REAL\n", 8);
+		ft_printf("POURC D TEST A = 2 B = 1 |%2.1d|MINE\n", 8);
+		printf("POURC I TEST A = 2 B = 1 |%3.1i|REAL\n", 16);
+		ft_printf("POURC I TEST A = 2 B = 1 |%3.1i|MINE\n", 16);
+
+		printf("POURC D TEST A = 2 B = 1 |%*.*d|REAL\n", 2, 1, 8);
+		ft_printf("POURC D TEST A = 2 B = 1 |%*.*d|MINE\n", 2, 1, 8);
+		printf("POURC I TEST A = 2 B = 1 |%*.*i|REAL\n", 2, 1, 8);
+		ft_printf("POURC I TEST A = 2 B = 1 |%*.*i|MINE\n", 2, 1, 8);
+
+
+		while (b < 5)
+		{
+			printf ("\n\nA = %d\n", a);
+			printf ("B = %d\n\n", b);
+			printf(" R-- Return : %d\n", printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			printf(" M-- Return : %d\n", ft_printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			printf(" R-- Return : %d\n", printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			printf(" M-- Return : %d\n", ft_printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			printf(" R-- Return : %d\n", printf("%0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			printf(" M-- Return : %d\n", ft_printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			// derniere ligne ne marche jamais refaire parser
+			b++;
+		}
+		//a++;
+	//}
+
+	ft_printf("___ Quick Test Unsigned:_____\n"); 
+	ft_printf(" --- Return : %d\n", ft_printf("%0-i, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d", i, j, k, l, m, c, e, d)); //T16
+	printf(" --- Return : %d\n", printf("%0-i, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d", i, j, k, l, m, c, e, d)); //T16
+	ft_printf(" --- Return : %d\n", ft_printf("%-i, %-d, %-d, %-d, %-d, %-d, %-d, %-d", i, j, k, l, m, c, e, d)); //T16
+	printf(" --- Return : %d\n", printf("%-i, %-d, %-d, %-d, %-d, %-d, %-d, %-d", i, j, k, l, m, c, e, d)); //T16
+
+	printf("%u\n", 65535); // OK
+	ft_printf("%u\n", 65535); //OK
+	printf("%u\n", -8);
+	ft_printf("%u\n", -8);
+
 
 	ft_printf("Test 1: %15.9d\n", 1111); //passe
 	printf("Test 1: %15.9d\n", 1111);
@@ -322,19 +405,19 @@ void ft_test_wildcard()
 	// ret2 = printf("neg8 %*.*d|\n", -1586, 15, 300);
 	// printf("\nTest %d: MY RET = %d\n VS REAL RET = %d\n\n", i++, ret1, ret2);
 
-	ret1 = printf("neg9 %*.*d\n", 15856, 155, -3000);
-	ret2 = ft_printf("neg9 %*.*d\n", 15856, 155, -3000);
-	printf("\nTest %d: MY RET = %d\n VS REAL RET = %d\n\n", i++, ret1, ret2);
-	ret1 = printf("neg10 %*.*d\n", -15586, 15, 150);
-	ret2 = ft_printf("neg10 %*.*d\n", -15586, 15, 150);
-	printf("\nTest %d: MY RET = %d\n VS REAL RET = %d\n\n", i++, ret1, ret2);
-	ret1 = printf("neg11 %*.*d\n", -15586, 15, 0);
-	ret2 = ft_printf("neg11 %*.*d\n", -15586, 15, 0);
-	printf("\nTest %d: MY RET = %d\n VS REAL RET = %d\n\n", i++, ret1, ret2);
+	// ret1 = printf("neg9 %*.*d\n", 15856, 155, -3000);
+	// ret2 = ft_printf("neg9 %*.*d\n", 15856, 155, -3000);
+	// printf("\nTest %d: MY RET = %d\n VS REAL RET = %d\n\n", i++, ret1, ret2);
+	// ret1 = printf("neg10 %*.*d\n", -15586, 15, 150);
+	// ret2 = ft_printf("neg10 %*.*d\n", -15586, 15, 150);
+	// printf("\nTest %d: MY RET = %d\n VS REAL RET = %d\n\n", i++, ret1, ret2);
+	// ret1 = printf("neg11 %*.*d\n", -15586, 15, 0);
+	// ret2 = ft_printf("neg11 %*.*d\n", -15586, 15, 0);
+	// printf("\nTest %d: MY RET = %d\n VS REAL RET = %d\n\n", i++, ret1, ret2);
 
 	ft_printf("FT1 :: %010%\n");
 	printf("PF1 :: %010%\n"); //??? au'en faire ?
-	ft_printf("FT2 :: %010awtwrwds%\n");
+	ft_printf("FT2 :: %010as%\n");
 	printf("ICI :: %010as%\n"); //??? au'en faire ?
 	ft_printf("MINE %%\n");
 	printf("REAL %%\n"); //??? au'en faire ?
@@ -471,12 +554,14 @@ int main()
 	int ret1;
 	int ret2;
 
+
+
 	//ft_test_char();
 	ft_test_int();
-	//ft_test_str();
+//	ft_test_str();
 	//ft_test_wildcard();
 	//ft_test_zero_null_values();
 	//ft_test_ret();
-	ft_test_hex();
-	ft_test_percent();
+	//ft_test_hex();
+	//ft_test_percent();
 }

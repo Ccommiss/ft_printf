@@ -1,5 +1,7 @@
 #include "ft_printf.h"
 
+
+
 void ft_handle_spaces(t_data *data, char *str)
 {
 	int precision;
@@ -34,7 +36,7 @@ void ft_handle_spaces(t_data *data, char *str)
 	}
 	if (data->minus == 1)
 	{
-		if ((data->zero == 1 || data->point == 1) && str[0] == '-' && str++)//test pour mettre le - avabnt les 0
+		if ((data->zero == 1 || data->point == 1) && str[0] == '-' && str++)//test pour mettre le - avant les 0
 			write_buff(data, '-');
 		while (precision-- - len_str > 0)
 			write_buff(data, '0');
@@ -51,12 +53,12 @@ void ft_handle_spaces(t_data *data, char *str)
 	else if (data->minus == 0)
 	{
 		if (data->point == 1)
-			while ((len_str < precision && width-- - precision > 0) || (len_str > precision && width-- - len_str > 0))
+			while ((len_str <= precision && width-- - precision > 0) || (len_str > precision && width-- - len_str > 0))
 				write_buff(data, ' ');
 		else
 			while (width-- - len_str > 0)
 				write_buff(data, ' ');
-		if ((data->zero == 1 || data->point == 1) && str[0] == '-' && str++)//test pour mettre le - avabnt les 0
+		if ((data->zero == 1 || data->point == 1) && str[0] == '-' && str++)//test pour mettre le - ava nt les 0
 			write_buff(data, '-');
 		while (precision - len_str++ > 0) //????
 			write_buff(data, '0');

@@ -5,6 +5,7 @@ SRCS = ft_printf.c \
 		handle_p.c \
 		handle_s.c \
 		handle_x.c \
+		handle_u.c \
 		utils.c
 
 FLAGS = -Wall -Werror -Wextra -I./libft/

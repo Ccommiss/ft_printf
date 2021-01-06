@@ -16,26 +16,26 @@ void str_treat(t_data *data, char *str)
 	{
 		if (data->width == 1 && width != 0)
 			while (i++ < width - str_len - precision)
-				write_buff(data, ' '); data->buff[data->len++] = ' ';
+				write_buff(data, ' ');
 		i = 0;
 		if (data->point == 1)
 			while (i++ < precision && *str != '\0')
-				write_buff(data, *str++); //data->buff[data->len++] = *str++;
+				write_buff(data, *str++);
 		else
 			while (*str != '\0')
-				write_buff(data, *str++); //data->buff[data->len++] = *str++;
+				write_buff(data, *str++);
 	}
 	else if (data->minus == 1)
 	{
 		if (data->point == 1)
 			while (i++ < precision && *str != '\0')
-				write_buff(data, *str++); //data->buff[data->len++] = *str++;
+				write_buff(data, *str++);
 		else
 			while (*str != '\0')
-				write_buff(data, *str++); //data->buff[data->len++] = *str++;
+				write_buff(data, *str++);
 		if (data->width == 1)
 			while ((str_len < precision && width-- - precision > 0) || (str_len > precision && width-- - str_len > 0))
-				write_buff(data, ' ');//data->buff[data->len++] = ' ';
+				write_buff(data, ' ');
 	}
 }
 

@@ -31,7 +31,7 @@ void	write_buff(t_data *data, char c)
 
 int ft_analyse(t_data *data, char flag) //faire une fonction reset pour le prochain arg
 {
-	if (flag == '0')
+	if (flag == '0' && data->minus == 0) // si data minus est la pas de 0, test
 		data->zero = 1;
 	else if (flag == '*')
 		data->wildcard = 1;

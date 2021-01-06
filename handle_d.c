@@ -59,22 +59,31 @@ void ft_handle_spaces(t_data *data, char *str)
 	precision = ft_atoi(data->precision) - len_str;
 	padding = ft_atoi(data->twidth) - len_str;
 
+	//printf("PADDING = %d\n", padding);
+	//printf("PRECISION = %d\n", precision);
+	//printf("ZERO ? = %d\n", data->zero);
+	//printf("MINUS ? = %d\n", data->minus);
+
 	if (data->point == 1 && *str == '-') // car la longueur de la chaine fait perdre un pt de precision
 		precision = precision + 1;
-
+	//exception si precison = 0 et nb = 0 : ca ne renvoie rien
+	if (len_str == 1 && str[0] == '0' && data->point == 1)
+	{
+		if (precision + 1 > 0)
+			str[0] = '0';
+		else if (data->width == 1 && padding >= 0)
+	 		str[0] = ' ';
+		else // si on gere un padding ca rajoute un espace
+			str[0] = '\0';
+	}
 	if (padding < 0)
 		padding = 0;
 	if (precision < 0)
 		precision = 0;
 
 	i = 0;
-	//exception si precison = 0 et nb = 0 : ca ne renvoie rien
-	if (len_str == 1 && str[0] == '0' && data->point == 1 && (precision + len_str)  == 0)
-	{
-	 	str[0] = '\0';
-	 	if (padding != 0)
-			str[0] = ' ';
-	}
+
+
 	if (data->minus == 0)
 		ft_right_align(data, padding, precision, str);
 	if (data->minus == 1)

@@ -67,6 +67,7 @@ void ft_getwildcard(t_data *data, va_list *args)
 			data->minus = 1; // vrmt chelou mais je crois c ca
 		}
 		data->width = 1;
+		ft_bzero((void *)data->twidth, 12); // on a pu remplir par erreur
 			while (get_num[i] != '\0')
 				data->twidth[n++] = get_num[i++];
 	}
@@ -81,7 +82,6 @@ void ft_getwildcard(t_data *data, va_list *args)
 		while (get_num[i] != '\0')
 			data->precision[n++] = get_num[i++];
 	}
-//	ft_memdel((void *)get_num);
 }
 
 int ft_take_args(t_data *data, char *input, va_list *args)
@@ -102,7 +102,7 @@ int ft_take_args(t_data *data, char *input, va_list *args)
 		if (input[i] == '*' && (ft_analyse(data, '*') == 1))
 			ft_getwildcard(data, args);
 		if (ft_isdigit(input[i]) && ft_analyse(data, 'w') == 1) // On arrive a la width
-				data->twidth[n++] = input[i];
+			data->twidth[n++] = input[i];
 		i++;
 	}
 	// GET PRECISION
@@ -119,6 +119,8 @@ int ft_take_args(t_data *data, char *input, va_list *args)
 			while (ft_table(input[i]) == 0 && ft_isdigit(input[i]))
 				data->precision[n++] = input[i++];
 	}
+	while (input[i] && ft_table(input[i]) == 0) // test perilleux on va chercher a tout prix un arg ou la fin de la chaine
+		i++;
 	return (i);
 }
 

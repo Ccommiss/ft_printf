@@ -20,37 +20,46 @@ void ft_convertstr(t_data *data, va_list *args)
 	{
 		if (data->width == 1 && width != 0)
 		{
-			if (data->point == 1 && precision < str_len)
-				while (i++ < width - precision) //test semble marcher, avant : (i++ < width - str_len - precision)
-					write_buff(data, ' '); //data->buff[data->len++] = ' ';
+			if (data->point == 1 && (precision < str_len))
+				while (i++ < width - precision)
+					write_buff(data, ' ');
 			else // si la chaine est plus petite que la precision, on ne s'occupe pas de la precision
 				while (i++ < width - str_len)
-					write_buff(data, ' ');//data->buff[data->len++] = ' ';
+					write_buff(data, ' ');
 		}
 		i = 0;
 		if (data->point == 1)
 			while (i++ < precision && *str != '\0')
-				write_buff(data, *str++);//data->buff[data->len++] = *str++;
+				write_buff(data, *str++);
 		else
 			while (*str != '\0')
-				write_buff(data, *str++); //data->buff[data->len++] = *str++;
+				write_buff(data, *str++);
 	}
 	else if (data->minus == 1)
 	{
 		if (data->point == 1)
 			while (i++ < precision && *str != '\0')
-				write_buff(data, *str++); //data->buff[data->len++] = *str++;
+				write_buff(data, *str++);
 		else
 			while (*str != '\0')
-				write_buff(data, *str++);//data->buff[data->len++] = *str++;
-		if (data->width == 1)
-			while ((str_len < precision && width-- - precision > 0) || (str_len > precision && width-- - (str_len - precision) > 0))
-				write_buff(data, ' ');//data->buff[data->len++] = ' ';
+				write_buff(data, *str++);
+		i = 0;
+		if (data->width == 1 && width != 0)
+		{
+			if (data->point == 1 && (precision < str_len))
+				while (i++ < width - precision)
+					write_buff(data, ' ');
+			else // si la chaine est plus petite que la precision, on ne s'occupe pas de la precision
+				while (i++ < width - str_len)
+					write_buff(data, ' ');
+		}
+
 	}
 }
 
 void ft_percent(t_data *data, va_list *args)
 {
 	(void)args;
-	data->buff[data->len++] = '%';
+	ft_handle_spaces(data, "%");
+	//data->buff[data->len++] = '%';
 }

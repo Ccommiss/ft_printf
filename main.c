@@ -6,7 +6,7 @@ void ft_test_char()
 	int ret1;
 	int ret2;
 
-	
+
 
 	printf("\n\n");
 	printf("%50s", GREEN "[[		_________		]]\n" NONE);
@@ -80,9 +80,8 @@ void ft_test_int()
 	int		l = 0;
 	int		m = -12345678;
 
-	printf("Test 0 :\n");
-    printf("ret = %d\n", printf("%%p::[%010.1d]\n", -8473));
-    printf("ret = %d\n", ft_printf("%%p::[%010.1d]\n", -8473));
+//	printf("Test 0 :\n");
+
 
 
 	// 	while (a < 5) //T34-69
@@ -90,14 +89,14 @@ void ft_test_int()
 	// 	printf ("A = %d\n", a);
 	// 	printf("%*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
 	// 	ft_printf("%*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d\n\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
-		
+
 	// 	// a = -2, i = 8
 	// 	printf("%0*i, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
 	// 	ft_printf("%0*i, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d\n\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
-		
+
 	// 	printf("%-*i, %-*d, %-*d, %-*d, %-*d, %-*d, %-*d, %-*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
 	// 	ft_printf("%-*i, %-*d, %-*d, %-*d, %-*d, %-*d, %-*d, %-*d\n\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
-		
+
 	// 	printf("%.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
 	// 	ft_printf("%.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d\n\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
 	// 	a++;
@@ -107,25 +106,25 @@ void ft_test_int()
 	//while(a < 5) //T70-177
 //	{
 		b = -2;
-		printf("POURC D TEST A = 2 B = 1 |%2.1d|REAL\n", 8);
-		ft_printf("POURC D TEST A = 2 B = 1 |%2.1d|MINE\n", 8);
-		printf("POURC I TEST A = 2 B = 1 |%3.1i|REAL\n", 16);
-		ft_printf("POURC I TEST A = 2 B = 1 |%3.1i|MINE\n", 16);
+		// printf("POURC D TEST A = 2 B = 1 |%2.1d|REAL\n", 8);
+		// ft_printf("POURC D TEST A = 2 B = 1 |%2.1d|MINE\n", 8);
+		// printf("POURC I TEST A = 2 B = 1 |%3.1i|REAL\n", 16);
+		// ft_printf("POURC I TEST A = 2 B = 1 |%3.1i|MINE\n", 16);
 
-		printf("POURC D TEST A = 2 B = 1 |%*.*d|REAL\n", 2, 1, 8);
-		ft_printf("POURC D TEST A = 2 B = 1 |%*.*d|MINE\n", 2, 1, 8);
-		printf("POURC I TEST A = 2 B = 1 |%*.*i|REAL\n", 2, 1, 8);
-		ft_printf("POURC I TEST A = 2 B = 1 |%*.*i|MINE\n", 2, 1, 8);
+		// printf("POURC D TEST A = 2 B = 1 |%*.*d|REAL\n", 2, 1, 8);
+		// ft_printf("POURC D TEST A = 2 B = 1 |%*.*d|MINE\n", 2, 1, 8);
+		// printf("POURC I TEST A = 2 B = 1 |%*.*i|REAL\n", 2, 1, 8);
+		// ft_printf("POURC I TEST A = 2 B = 1 |%*.*i|MINE\n", 2, 1, 8);
 
 
 		while (b < 5)
 		{
 			printf ("\n\nA = %d\n", a);
 			printf ("B = %d\n\n", b);
-			printf(" R-- Return : %d\n", printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-			printf(" M-- Return : %d\n", ft_printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-			printf(" R-- Return : %d\n", printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
-			printf(" M-- Return : %d\n", ft_printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			//printf(" R-- Return : %d\n", printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			//printf(" M-- Return : %d\n", ft_printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			//printf(" R-- Return : %d\n", printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+			//printf(" M-- Return : %d\n", ft_printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
 			printf(" R-- Return : %d\n", printf("%0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
 			printf(" M-- Return : %d\n", ft_printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
 			// derniere ligne ne marche jamais refaire parser
@@ -134,7 +133,7 @@ void ft_test_int()
 		//a++;
 	//}
 
-	ft_printf("___ Quick Test Unsigned:_____\n"); 
+	ft_printf("___ Quick Test Unsigned:_____\n");
 	ft_printf(" --- Return : %d\n", ft_printf("%0-i, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d", i, j, k, l, m, c, e, d)); //T16
 	printf(" --- Return : %d\n", printf("%0-i, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d", i, j, k, l, m, c, e, d)); //T16
 	ft_printf(" --- Return : %d\n", ft_printf("%-i, %-d, %-d, %-d, %-d, %-d, %-d, %-d", i, j, k, l, m, c, e, d)); //T16

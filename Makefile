@@ -1,11 +1,14 @@
 NAME = libftprintf.a
 
 SRCS = ft_printf.c \
+		parser.c \
 		handle_d.c \
 		handle_p.c \
 		handle_s.c \
 		handle_x.c \
 		handle_u.c \
+		handle_c.c\
+		display.c \
 		utils.c
 
 FLAGS = -Wall -Werror -Wextra -I./libft/

@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/07 15:09:30 by ccommiss          #+#    #+#             */
-/*   Updated: 2021/01/07 15:09:33 by ccommiss         ###   ########.fr       */
+/*   Created: 2021/01/07 16:12:21 by ccommiss          #+#    #+#             */
+/*   Updated: 2021/01/07 16:12:26 by ccommiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *input, ...)
+void	ft_putstr_spec(int len, char *str)
 {
-	char	*var;
-	t_data	data;
-	va_list	args;
+	int	i;
 
-	init_printf(&data);
-	va_start(args, input);
-	ft_parser(input, &data, &args);
-	var = va_arg(args, char *);
-	va_end(args);
-	data.ret = data.ret + data.len - 1;
-	ft_putstr_spec(data.len - 1, data.buff);
-	return (data.ret);
+	i = 0;
+	if (!str)
+		ft_putchar(0);
+	while (i < len && len <= 2048)
+		ft_putchar(str[i++]);
+}
+
+void	write_buff(t_data *data, char c)
+{
+	data->buff[data->len++] = c;
+	if (data->len == 2048)
+	{
+		ft_putstr_spec(2048, data->buff);
+		ft_bzero((void *)data->buff, 2048);
+		data->ret = data->ret + data->len;
+		data->len = 0;
+	}
 }

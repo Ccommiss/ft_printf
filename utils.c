@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/07 16:08:33 by ccommiss          #+#    #+#             */
+/*   Updated: 2021/01/07 17:23:11 by ccommiss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 /*
@@ -15,52 +27,9 @@
 **	[Nb] : none
 */
 
-
-void	ft_putstr_spec(int len, char *str)
+int		ft_analyse(t_data *data, char flag)
 {
-	int i;
-
-	i = 0;
-	if (!str)
-		ft_putchar(0);
-//	printf ("LEN = %d\n", len);
-	//if (len > 2048)
-	//{
-	//	printf ("ON A UN PB \n\n");
-		// ca a supp des erreurs donc j ai une len trop longu un moment
-	//	return ;
-	//}
-	while(i < len && len <= 2048)
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	//if (i == len && str[i] != 0)
-	if (!str)
-		ft_putchar(0);
-}
-
-void	write_buff(t_data *data, char c)
-{
-	data->buff[data->len++] = c;
-	if (data->len == 2048)
-	{
-
-	//	printf ("DATA LEN NOW = \n");
-	//	printf ("DATA BUFF = %s\n", data->buff);
-		//ft_putstr_spec(2048, data->buff);
-		ft_putstr(data->buff);
-		ft_bzero((void *)data->buff, 2048);
-		data->ret = data->ret + data->len;
-		data->len = 0;
-	}
-}
-
-
-
-int ft_analyse(t_data *data, char flag) //faire une fonction reset pour le prochain arg
-{
-	if (flag == '0' && data->minus == 0) // si data minus est la pas de 0, test
+	if (flag == '0' && data->minus == 0)
 		data->zero = 1;
 	else if (flag == '*')
 		data->wildcard = 1;
@@ -84,14 +53,14 @@ int ft_analyse(t_data *data, char flag) //faire une fonction reset pour le proch
 **		In ft_take_args to verify char is not yet a conversion.
 **		In ft_parser to call the correct function.
 **	[Arguments] : type of conversion
-**	[Return] : number of the function in the functions tab func f[10], or 0
+**	[Return] : number of the function in the functions tab t_func f[10], or 0
 **	if none have been found.
 **	[Nb] : none
 */
 
-int ft_table(char type)
+int		ft_table(char type)
 {
-	if (type == 'd' || type == 'i') //u provisoire
+	if (type == 'd' || type == 'i')
 		return (fint);
 	if (type == 'u')
 		return (funsigned);
@@ -99,20 +68,18 @@ int ft_table(char type)
 		return (fstr);
 	if (type == 'c')
 		return (fchar);
-	if (type == 'p')//x provisoire
+	if (type == 'p')
 		return (fadd);
 	if (type == 'x')
 		return (fhex);
 	if (type == 'X')
-		return (fhexU);
+		return (fhex_upcase);
 	if (type == '%')
-		return(fpercent);
-//	if (ft_isalpha(type)) // peut etre faire fonctions wrong conversions
-//		return (wrong); //jsp pk c si jamais on a un truc genre %10as%
+		return (fpercent);
 	return (0);
 }
 
-void ft_reset_flags(t_data *data)
+void	ft_reset_flags(t_data *data)
 {
 	data->zero = 0;
 	data->minus = 0;
@@ -123,20 +90,17 @@ void ft_reset_flags(t_data *data)
 	ft_bzero((void *)data->twidth, 12);
 }
 
-void init_printf(t_data *data)
+void	init_printf(t_data *data)
 {
-	data->len = 0; //longueur totale du buffer qu'on aura a afficher
-	data->f[fint] = (func)&ft_convertints;
-	data->f[fstr] = (func)&ft_convertstr;
-	data->f[fchar] = (func)&ft_convertchar;
-	data->f[fadd] = (func)&ft_convertadd;
-	data->f[fhex] = (func)&ft_converthex;
-	data->f[fhexU] = (func)&ft_converthexU;
-	data->f[fpercent] = (func)&ft_percent;
-	data->f[funsigned] = (func)&ft_convertunsignedints;
-	data->f[wrong] = (func)&ft_wrong;
+	data->len = 0;
+	data->f[fint] = (t_func)(&ft_convertints);
+	data->f[fstr] = (t_func)(&ft_convertstr);
+	data->f[fchar] = (t_func)(&ft_convertchar);
+	data->f[fadd] = (t_func)(&ft_convertadd);
+	data->f[fhex] = (t_func)(&ft_converthex);
+	data->f[fhex_upcase] = (t_func)(&ft_converthex_uppercase);
+	data->f[fpercent] = (t_func)(&ft_percent);
+	data->f[funsigned] = (t_func)(&ft_convertunsignedints);
 	data->ret = 0;
-	ft_bzero((void *)data->buff, 2049); // ? oui non ?
-	//ft_bzero((void *)data->precision, 12); //idem car dans reset flag
-//	ft_bzero((void *)data->twidth, 12);
+	ft_bzero((void *)data->buff, 2049);
 }

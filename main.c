@@ -604,17 +604,27 @@ int main()
 	char	*u = "-0";
 
 
+	printf("st120 %*s\n", 10000, "hello");
+	ft_printf("st120 %*s\n", 10000, "hello");
+	//ft_printf(" --- Return : %d\n", ft_printf("%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0));
+	//printf(" --- Return : %d\n", printf("%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0));
+
+	//printf("taaa %100s\n", "hello");
+	//ft_printf("taaa %100s\n", "hello");
+	//ft_printf()
+
 	//printf(" --- Return : %d\n", printf("%-00000-----*i, %---0.*d, %0-0-0-0-0.*d, %-0-0-0-0-.*d, %-----.*d", 12, 18, 12, 18, 12, 18, 12, 18, 12, 18)); // 1st '*' = 12, 2nd '*' = 18);
 	// a = 8;
 	// while (a < 12) //
 	// {
 	// 	//printf(" --- Return : %d\n", printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
-	// 	//ft_printf(" --- Return : %d\n", ft_printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
+	//ft_printf(" --- Return : %d\n", ft_printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
 	// 	//printf(" --- Return : %d\n", printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
 	// 	ft_printf(" --- Return : %d\n", ft_printf("%-*p, %-*p, %-*p, %-*p, %-*p, %-*p, %-*p, %-*p", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
 	// 	printf(" --- Return : %d\n", printf("%-*p, %-*p, %-*p, %-*p, %-*p, %-*p, %-*p, %-*p", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
 	// 	a++;
 	// }
+	//ft_printf("SALUT\n");
 	//ft_printf("%*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d\n", -4, 2, -4, 2, -4, 2, -4, 2, -4, -2, -4 , -2, -4, 2, -4, 2);
 	//ft_printf(" --- Return : %d\n", ft_printf("%-00000-----*i, %---0.*d, %0-0-0-0-0.*d, %-0-0-0-0-.*d, %-----.*d", 12, 18, 12, 18, 12, 18, 12, 18, 12, 18)); // 1st '*' = 12, 2nd '*' = 18);
 //	ft_printf(" --- Return : %d\n", ft_printf("%*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u));
@@ -626,6 +636,6 @@ int main()
 	//ft_test_wildcard();
 	//ft_test_zero_null_values();
 	//ft_test_ret();
-	ft_test_hex();
+	//ft_test_hex();
 	//ft_test_percent();
 }

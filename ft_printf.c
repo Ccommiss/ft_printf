@@ -15,14 +15,17 @@ void ft_convertchar(t_data *data, va_list *args)
 {
 	char c;
 	int width;
+	int len;
 
 	c = va_arg(*args, int);
 	width = ft_atoi(data->twidth);
+	len = 1;
+
 	if (data->minus == 0)
 	{
 		if (data->width == 1 && width != 0)
 			while (width-- - 1 > 0)
-				write_buff(data, ' ');//data->buff[data->len++] = ' ';
+				write_buff(data, ' ');
 		write_buff(data, c);
 	}
 	else if (data->minus == 1)
@@ -137,8 +140,8 @@ void ft_parser(const char *input, t_data *data, va_list *args)
 
 	ft_reset_flags(data);
 	while (input[i] && input[i] != '%')
-		write_buff(data, input[i++]);//data->buff[data->len++] = input[i++];
-	if (input[i] == '%') //deuxieme partie = test
+		write_buff(data, input[i++]);
+	if (input[i] == '%')
 	{
 		i++;
 		i = i + ft_take_args(data, (char *)input + i, args);
@@ -149,7 +152,7 @@ void ft_parser(const char *input, t_data *data, va_list *args)
 	if (input[i] != 0 && (input + i))
 		ft_parser(input + i, data, args);
 	else
-		write_buff(data, '\0');//data->buff[data->len] = '\0';
+		write_buff(data, '\0'); // pose peut etre pb car c plus notre limite
 }
 
 
@@ -166,8 +169,10 @@ int ft_printf(const char *input, ...)
 	va_start(args, input);
 	ft_parser(input, &data, &args);
 	var = va_arg(args, char *);
-	ft_putstr(data.buff);
+//	ft_putstr(data.buff);
+
 	va_end(args);
 	data.ret = data.ret + data.len - 1;
+	ft_putstr_spec(data.len - 1, data.buff); // data len car si len > 2048 on aura deja renvoye
 	return (data.ret);
 }

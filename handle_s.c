@@ -61,5 +61,4 @@ void ft_percent(t_data *data, va_list *args)
 {
 	(void)args;
 	ft_handle_spaces(data, "%");
-	//data->buff[data->len++] = '%';
 }

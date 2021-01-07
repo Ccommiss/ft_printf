@@ -22,7 +22,7 @@ void ft_convertchar(t_data *data, va_list *args)
 	{
 		if (data->width == 1 && width != 0)
 			while (width-- - 1 > 0)
-				write_buff(data, ' ');//data->buff[data->len++] = ' ';
+				write_buff(data, ' ');
 		write_buff(data, c);
 	}
 	else if (data->minus == 1)
@@ -175,8 +175,8 @@ void ft_parser(const char *input, t_data *data, va_list *args)
 
 	ft_reset_flags(data);
 	while (input[i] && input[i] != '%')
-		write_buff(data, input[i++]);//data->buff[data->len++] = input[i++];
-	if (input[i] == '%') //deuxieme partie = test
+		write_buff(data, input[i++]);
+	if (input[i] == '%') 
 	{
 		i++;
 		i = i + ft_take_args(data, (char *)input + i, args);

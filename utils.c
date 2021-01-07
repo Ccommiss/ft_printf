@@ -15,11 +15,40 @@
 **	[Nb] : none
 */
 
+
+void	ft_putstr_spec(int len, char *str)
+{
+	int i;
+
+	i = 0;
+	if (!str)
+		ft_putchar(0);
+//	printf ("LEN = %d\n", len);
+	//if (len > 2048)
+	//{
+	//	printf ("ON A UN PB \n\n");
+		// ca a supp des erreurs donc j ai une len trop longu un moment
+	//	return ;
+	//}
+	while(i < len && len <= 2048)
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	//if (i == len && str[i] != 0)
+	if (!str)
+		ft_putchar(0);
+}
+
 void	write_buff(t_data *data, char c)
 {
 	data->buff[data->len++] = c;
 	if (data->len == 2048)
 	{
+
+	//	printf ("DATA LEN NOW = \n");
+	//	printf ("DATA BUFF = %s\n", data->buff);
+		//ft_putstr_spec(2048, data->buff);
 		ft_putstr(data->buff);
 		ft_bzero((void *)data->buff, 2048);
 		data->ret = data->ret + data->len;
@@ -107,6 +136,7 @@ void init_printf(t_data *data)
 	data->f[funsigned] = (func)&ft_convertunsignedints;
 	data->f[wrong] = (func)&ft_wrong;
 	data->ret = 0;
+	ft_bzero((void *)data->buff, 2049); // ? oui non ?
 	//ft_bzero((void *)data->precision, 12); //idem car dans reset flag
 //	ft_bzero((void *)data->twidth, 12);
 }

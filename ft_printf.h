@@ -77,4 +77,5 @@ void	ft_reset_flags(t_data *data);
 int		ft_table(char type);
 int		ft_analyse(t_data *data, char flag);
 
+void	ft_putstr_spec(int len, char *str);
 int  ft_printf(const char *input, ...);

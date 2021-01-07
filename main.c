@@ -194,71 +194,70 @@ void ft_test_int()
 	// 	ft_printf("Test 9: %13.2d| he %-18s|\n", 1234, "tatidoum");
 	// 	printf("Test 9: %13.2d| he %-18s|\n", 1234, "tatidoum");
 	// }
+}
+void ft_test_hex()
+{
 
-	// void ft_test_hex()
+		printf("\n\n");
+		printf("%50s", MAGENTA "[[		_________		]]\n" NONE);
+		printf("%50s", MAGENTA "[[		Tests HEX		]]\n" NONE);
+		printf("%50s", MAGENTA "[[		_________		]]\n" NONE);
+		printf("\n\n");
+
+		char str[4] = "tata";
+		int a = 8;
+		//ft_printf("Addresse : %-18p oo\n", &a);
+		//printf("Addresse : %-18p oo\n\n", &a);
+
+		int e = 0;
+		// printf("TEST %d:\n", e++);
+		// ft_printf("Addresse : %-18p oo\n", &a);
+		// printf("Addresse : %-18p oo\n\n", &a);
+
+		// printf("TEST %d:\n", e++);
+		// ft_printf("FT = %x\n", 323);
+		// printf("PT = %x\n", 323);
+
+		// printf("TEST %d:\n", e++);
+		// ft_printf("FT = %.8x\n", 19997856);
+		// printf("PT = %.8x\n", 19997856);
+
+		// printf("TEST %d:\n", e++);
+		// ft_printf("FT = %.8x\n", 0012);
+		// printf("PT = %.8x\n", 0012);
+
+		// printf("TEST %d:\n", e++);
+		// ft_printf("FT = %*.*x\n", 8, 9, 0012);
+		// printf("PT = %*.*x\n", 8, 9, 0012);
+
+		printf("TEST FAIL %d:\n", e++);
+		printf("THEIR %10.2x\n", -20);
+		ft_printf("MINE %10.2x\n", -20);
+
+		// printf("THEIR %10.2x\n", -38);
+		// ft_printf("MINE %10.2x\n", -38);
+
+		// printf("TEST %d:\n", e++);
+		// printf("%-10x\n", 50);
+		// ft_printf("%-10x\n", 50);
+
+		// printf("TEST %d:\n", e++);
+		// printf("%-15x\n", 0);
+		// ft_printf("%-15x\n", 0);
+
+		// printf("TEST %d:\n", e++);
+		// printf("%.1x\n", 500);
+		// ft_printf("%.1x\n", 500);
+
+		// printf("TEST %d:\n", e++);
+		// printf("%*.*x\n", 50, 10, 2);
+		// ft_printf("%*.*x\n", 50, 10, 2);
+	}
+
+	// void ft_test_address()
 	// {
 
-	// 	printf("\n\n");
-	// 	printf("%50s", MAGENTA "[[		_________		]]\n" NONE);
-	// 	printf("%50s", MAGENTA "[[		Tests HEX		]]\n" NONE);
-	// 	printf("%50s", MAGENTA "[[		_________		]]\n" NONE);
-	// 	printf("\n\n");
-
-	// 	char str[4] = "tata";
-	// 	int a = 8;
-	// 	ft_printf("Addresse : %-18p oo\n", &a);
-	// 	printf("Addresse : %-18p oo\n\n", &a);
-
-	// 	int e = 0;
-	// 	printf("TEST %d:\n", e++);
-	// 	ft_printf("Addresse : %-18p oo\n", &a);
-	// 	printf("Addresse : %-18p oo\n\n", &a);
-
-	// 	printf("TEST %d:\n", e++);
-	// 	ft_printf("FT = %x\n", 323);
-	// 	printf("PT = %x\n", 323);
-
-	// 	printf("TEST %d:\n", e++);
-	// 	ft_printf("FT = %.8x\n", 19997856);
-	// 	printf("PT = %.8x\n", 19997856);
-
-	// 	printf("TEST %d:\n", e++);
-	// 	ft_printf("FT = %.8x\n", 0012);
-	// 	printf("PT = %.8x\n", 0012);
-
-	// 	printf("TEST %d:\n", e++);
-	// 	ft_printf("FT = %*.*x\n", 8, 9, 0012);
-	// 	printf("PT = %*.*x\n", 8, 9, 0012);
-
-	// 	printf("TEST FAIL %d:\n", e++);
-	// 	printf("THEIR %10.2x\n", -20);
-	// 	ft_printf("MINE %10.2x\n", -20);
-
-	// 	printf("THEIR %10.2x\n", -38);
-	// 	ft_printf("MINE %10.2x\n", -38);
-
-	// 	printf("TEST %d:\n", e++);
-	// 	printf("%-10x\n", 50);
-	// 	ft_printf("%-10x\n", 50);
-
-	// 	printf("TEST %d:\n", e++);
-	// 	printf("%-15x\n", 0);
-	// 	ft_printf("%-15x\n", 0);
-
-	// 	printf("TEST %d:\n", e++);
-	// 	printf("%.1x\n", 500);
-	// 	ft_printf("%.1x\n", 500);
-
-	// 	printf("TEST %d:\n", e++);
-	// 	printf("%*.*x\n", 50, 10, 2);
-	// 	ft_printf("%*.*x\n", 50, 10, 2);
-
 	// }
-
-	// // void ft_test_address()
-	// // {
-
-	// // }
 
 	// void ft_test_zero_null_values()
 	// {
@@ -351,7 +350,7 @@ void ft_test_int()
 	// 	ret1 = ft_printf("%10.3s|\n", str);
 	// 	ret2 = printf("%10.3s|\n", str);
 	// 	printf("\nMY RET = %d\n VS REAL RET = %d\n\n", ret1, ret2);
-}
+
 
 void ft_test_wildcard()
 {
@@ -606,8 +605,17 @@ int main()
 
 
 	//printf(" --- Return : %d\n", printf("%-00000-----*i, %---0.*d, %0-0-0-0-0.*d, %-0-0-0-0-.*d, %-----.*d", 12, 18, 12, 18, 12, 18, 12, 18, 12, 18)); // 1st '*' = 12, 2nd '*' = 18);
- 	printf("%*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d\n", -4, 2, -4, 2, -4, 2, -4, 2, -4, -2, -4, -2, -4, 2, -4, 2); // 1st '*' = -4, 2nd '*' = 0
-	ft_printf("%*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d\n", -4, 2, -4, 2, -4, 2, -4, 2, -4, -2, -4 , -2, -4, 2, -4, 2);
+	// a = 8;
+	// while (a < 12) //
+	// {
+	// 	//printf(" --- Return : %d\n", printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
+	// 	//ft_printf(" --- Return : %d\n", ft_printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
+	// 	//printf(" --- Return : %d\n", printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
+	// 	ft_printf(" --- Return : %d\n", ft_printf("%-*p, %-*p, %-*p, %-*p, %-*p, %-*p, %-*p, %-*p", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
+	// 	printf(" --- Return : %d\n", printf("%-*p, %-*p, %-*p, %-*p, %-*p, %-*p, %-*p, %-*p", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0));
+	// 	a++;
+	// }
+	//ft_printf("%*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d\n", -4, 2, -4, 2, -4, 2, -4, 2, -4, -2, -4 , -2, -4, 2, -4, 2);
 	//ft_printf(" --- Return : %d\n", ft_printf("%-00000-----*i, %---0.*d, %0-0-0-0-0.*d, %-0-0-0-0-.*d, %-----.*d", 12, 18, 12, 18, 12, 18, 12, 18, 12, 18)); // 1st '*' = 12, 2nd '*' = 18);
 //	ft_printf(" --- Return : %d\n", ft_printf("%*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u));
 //	printf(" --- Return : %d\n", printf("%-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u));
@@ -618,6 +626,6 @@ int main()
 	//ft_test_wildcard();
 	//ft_test_zero_null_values();
 	//ft_test_ret();
-	//ft_test_hex();
+	ft_test_hex();
 	//ft_test_percent();
 }

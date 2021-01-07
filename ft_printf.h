@@ -1,6 +1,6 @@
 #include "libft/libft.h"
 #include <stdarg.h>
-
+#include <string.h> // A SUPP
 
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"

@@ -1,5 +1,6 @@
 #include "ft_printf.h"
-
+ // A SUPP
+#include <stdarg.h>
 void str_treat(t_data *data, char *str)
 {
 	int precision;
@@ -41,37 +42,27 @@ void str_treat(t_data *data, char *str)
 
 static void ft_converthexp(t_data *data, uintptr_t input)
 {
-	char HEX[17] = "0123456789abcdef";
-	int index = 13;
-	char output[15];
-
-	ft_bzero((void *)output, 15);
-	output[0] = '0';
-	output[1] = 'x';
-	if (input != 0)
-		output[2] = 'f';
-	else
-		output[2] = '0';
-	while (input > 0)
-	{
-		output[index] = HEX[input & 15];
-		input = input / 16;
-		index--;
-	}
-	//output[14] = '\0';
-	index = 0;
+	char *output = NULL;
+	char *prefix = "0x";
+	output = ft_itoa_base(input, 16);
+	output = ft_strjoin(prefix, output); // melloc
 	str_treat(data, output);
 }
 
 void ft_convertadd(t_data *data, va_list *args)
 {
-	char *ptr;
+	void *ptr;
 	uintptr_t x;
 
-	ptr = va_arg(*args, char *);
-	if (ptr == NULL)
-		x = 0;
-	else
+	//ptr = va_arg(*args, char *);
+	ptr = va_arg(*args, void *);
+//	printf("%p\n", ptr);
+//	if (ptr == NULL)
+//	{
+//		printf("VOID * = NULL\n");
+//		x = 0;
+//	}
+//	else
 		x = (uintptr_t)ptr;
 	ft_converthexp(data, x);
 }

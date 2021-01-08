@@ -6,11 +6,21 @@
 /*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 15:34:33 by ccommiss          #+#    #+#             */
-/*   Updated: 2021/01/07 17:15:20 by ccommiss         ###   ########.fr       */
+/*   Updated: 2021/01/08 16:32:49 by ccommiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+**	ft_convertstr
+**
+**  [Usage] : handles %s and displays the string
+**	[Call] : in ft_parser
+**	[Arguments] : pointer on t_data structure and list of args
+**	[Return] : none
+**	[Nb] : none
+*/
 
 void	ft_str_right_align(t_data *data, char *str, int precision, int width)
 {

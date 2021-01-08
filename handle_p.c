@@ -6,11 +6,41 @@
 /*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 16:32:31 by ccommiss          #+#    #+#             */
-/*   Updated: 2021/01/07 16:45:23 by ccommiss         ###   ########.fr       */
+/*   Updated: 2021/01/08 16:29:10 by ccommiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+**	ft_convertadd
+**
+**  [Usage] : handles %p and displays address of the pointer
+**	[Call] : in ft_parser
+**	[Arguments] : pointer on t_data structure and list of args
+**	[Return] : none
+**	[Nb] : none
+*/
+
+void		ft_convertadd(t_data *data, va_list *args)
+{
+	void		*ptr;
+	uintptr_t	x;
+
+	ptr = va_arg(*args, void *);
+	x = (uintptr_t)ptr;
+	ft_converthexp(data, x);
+}
+
+/*
+**	ft_strtreat
+**
+**  [Usage] : handles %p and displays address of the pointer
+**	[Call] : in ft_parser
+**	[Arguments] : pointer on t_data structure and list of args
+**	[Return] : none
+**	[Nb] : none
+*/
 
 void		str_treat(t_data *data, char *str)
 {
@@ -29,7 +59,7 @@ void		str_treat(t_data *data, char *str)
 		ft_str_left_align(data, str, precision, width);
 }
 
-static void	ft_converthexp(t_data *data, uintptr_t input)
+void		ft_converthexp(t_data *data, uintptr_t input)
 {
 	char	*output;
 	char	*tmp;
@@ -41,19 +71,10 @@ static void	ft_converthexp(t_data *data, uintptr_t input)
 	if (!output)
 	{
 		free(tmp);
+		data->ret = -1;
 		return ;
 	}
 	str_treat(data, output);
 	free(tmp);
 	free(output);
-}
-
-void		ft_convertadd(t_data *data, va_list *args)
-{
-	void		*ptr;
-	uintptr_t	x;
-
-	ptr = va_arg(*args, void *);
-	x = (uintptr_t)ptr;
-	ft_converthexp(data, x);
 }

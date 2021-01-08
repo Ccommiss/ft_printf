@@ -38,13 +38,13 @@ void	ft_getwildcard(t_data *data, va_list *args)
 			get_num = ft_itoa(-w);
 		data->width = 1;
 		ft_bzero((void *)data->twidth, 12);
-		if (ft_strlen(get_num) <= 12)
+		if (ft_test(data, ft_strlen(get_num)) == 1)
 			ft_strncat(data->twidth, get_num, ft_strlen(get_num));
 		return ;
 	}
 	if (w < 0)
 		data->point = 0;
-	else if (ft_strlen(get_num) <= 12)
+	else if (ft_test(data, ft_strlen(get_num)) == 1)
 		ft_strncat(data->precision, get_num, ft_strlen(get_num));
 }
 
@@ -59,9 +59,9 @@ void	ft_get_width_zero(t_data *data, char *input, va_list *args, int *i)
 			ft_analyse(data, '-');
 		if (input[*i] == '0' && data->width == 0)
 			ft_analyse(data, '0');
-		if (input[*i] == '*' && (ft_analyse(data, '*') == 1))
+		if (input[*i] == '*' && (ft_analyse(data, '*')))
 			ft_getwildcard(data, args);
-		if (ft_isdigit(input[*i]) && ft_analyse(data, 'w') == 1 && n <= 12)
+		if (ft_isdigit(input[*i]) && ft_analyse(data, 'w') && ft_test(data, n))
 			data->twidth[n++] = input[*i];
 		*i += 1;
 	}
@@ -82,9 +82,9 @@ void	ft_get_precision(t_data *data, char *input, va_list *args, int *i)
 	}
 	while (input[*i] && ft_table(input[*i]) == 0 && ft_isdigit(input[*i]))
 	{
-		if (n <= 12)
+		if (n < 12)
 			data->precision[n++] = input[*i];
-		else if (n > 12 && data->precision[0] != '\0')
+		else if (n >= 12 && data->precision[0] != '\0' && ft_test(data, n) == 0)
 			ft_bzero((void *)data->precision, 12);
 		*i += 1;
 	}

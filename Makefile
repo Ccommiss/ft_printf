@@ -17,7 +17,7 @@ OBJS = $(SRCS:.c=.o)
 NORME = norminette
 LIBS = ./libft/libft.a
 CC = @clang -c -g $(FLAGS)
-WP = ${PWD}
+WP = `pwd | sed 's!.*/!!'`
 
 
 # This is a minimal set of ANSI/VT100 color codes
@@ -46,14 +46,14 @@ _LETTER = $'💌
 LC_ALL=C.UTF-8
 
 all : $(NAME)
-	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_GRASS)$(_BOLD)%s$(_END)\n" [$(NAME)] "✅	Your $(NAME) is ready."
+	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_GRASS)$(_BOLD)%s$(_END)\n" [$(WP)] "✅	Your $(NAME) is ready."
 	@echo "\n $(_UNIC)	By $(_PURPLE)$(_BOLD)ccommiss$(_END), with $(_LETTER)"
 complib:
 	@make -C libft/
 
 $(NAME): $(SRCS) $(OBJS)
 	@make -C libft/
-	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_WHITE)$(_LIGHT)%s\n$(_END)" [$(WP)]  "Your $(NAME) files are compiling..."
+	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_WHITE)$(_LIGHT)%s\n$(_END)" [$(WP)]  "Your $(WP) files are compiling..."
 	@cp ./libft/libft.a $(NAME)
 	$(CC) $(SRCS) -I$(LIBS)
 	@ar -rc $(NAME) $(OBJS)
@@ -65,7 +65,7 @@ norme:
 clean:
 	@rm -f $(OBJS) $(OBJS_BONUS)
 	@make clean -C libft/
-	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_LIGHT)%s\n$(_END)" [$(NAME)] "Your .o files have been deleted."
+	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_LIGHT)%s\n$(_END)" [$(WP)] "Your .o files have been deleted."
 
 cleanup:
 	@make fclean -C libft/
@@ -75,9 +75,9 @@ cleanup:
 fclean:
 	@make fclean -C libft/
 	@rm -f $(OBJS) $(OBJS_BONUS)
-	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_LIGHT)%s\n$(_END)" [$(NAME)] "Your .o files have been deleted."
+	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_LIGHT)%s\n$(_END)" [$(WP)] "Your .o files have been deleted."
 	@rm -f $(NAME)
-	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_BOLD)%s$(_END)\n" [$(NAME)] "🗑️	Your $(NAME) have been deleted."
+	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_BOLD)%s$(_END)\n" [$(WP)] "🗑️	Your $(NAME) have been deleted."
 
 
 re: fclean all

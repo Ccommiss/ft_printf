@@ -6,7 +6,7 @@
 /*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:16:32 by ccommiss          #+#    #+#             */
-/*   Updated: 2021/01/07 18:07:58 by ccommiss         ###   ########.fr       */
+/*   Updated: 2021/01/08 16:09:12 by ccommiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void			ft_converthex_uppercase(t_data *data, va_list *args);
 void			ft_convertadd(t_data *data, va_list *args);
 void			ft_percent(t_data *data, va_list *args);
 void			ft_convert_n(t_data *data, va_list *args);
+void			ft_converthexp(t_data *data, uintptr_t input);
 
 /*
 **  <UTILS> :  architecture of printf
@@ -94,5 +95,7 @@ int				ft_analyse(t_data *data, char flag);
 
 void			ft_putstr_spec(int len, char *str);
 int				ft_printf(const char *input, ...);
+
+int				ft_test(t_data *data, int max);
 
 #endif

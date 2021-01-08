@@ -10,6 +10,7 @@ int main()
 	ft_printf("Hello %n c moi\n", &c);
 	ft_printf("%d\n", c);
 
-	//ft_printf("%111111111111111111111111d\n", 3);
+	printf("%d\n", ft_printf("RET = %1d %d %d %d %d\n", 3, 8, 5));
+	printf("%d\n", printf("RET = %1d %d %d %d %d\n", 3, 8, 5));
 
 }

@@ -1,5 +1,5 @@
-[submodule "libft"]
-	path = libft
+[submodule "libftgit"]
+	path = libftgit
 	url = https://github.com/Ccommiss/libft.git
 [submodule "42TESTERS-PRINTF"]
 	path = 42TESTERS-PRINTF

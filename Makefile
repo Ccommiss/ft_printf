@@ -9,6 +9,7 @@ SRCS = ft_printf.c \
 		handle_u.c \
 		handle_c.c \
 		display.c \
+		handle_n_bonus.c \
 		utils.c
 
 BONUS = handle_n_bonus.c \
@@ -42,9 +43,9 @@ _LBLUE=$'\x1b[94m
 _ORANGE=$'\x1b[38;5;215m
 _PINK=$'\x1b[38;5;95m
 _GRASS=$'\x1b[38;5;119m
-_UNICORN= $'\360\237\246\204 
+_UNICORN= $'\360\237\246\204
 _UNIC=$'🦄
-_LETTER = $'💌 
+_LETTER = $'💌
 LC_ALL=C.UTF-8
 
 all : $(NAME)

@@ -6,7 +6,7 @@
 /*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:14:36 by ccommiss          #+#    #+#             */
-/*   Updated: 2021/01/08 16:30:36 by ccommiss         ###   ########.fr       */
+/*   Updated: 2021/01/08 23:28:15 by ccommiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,6 @@ void	ft_handle_spaces(t_data *data, char *str)
 	int	precision;
 	int	padding;
 	int	len_str;
-	int	i;
 
 	len_str = (int)ft_strlen(str);
 	precision = ft_atoi(data->precision) - len_str;
@@ -144,7 +143,6 @@ void	ft_handle_spaces(t_data *data, char *str)
 		padding = 0;
 	if (precision < 0)
 		precision = 0;
-	i = 0;
 	if (data->minus == 0)
 		ft_right_align(data, padding, precision, str);
 	if (data->minus == 1)

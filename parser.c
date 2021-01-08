@@ -6,7 +6,7 @@
 /*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 15:10:04 by ccommiss          #+#    #+#             */
-/*   Updated: 2021/01/07 15:15:03 by ccommiss         ###   ########.fr       */
+/*   Updated: 2021/01/07 17:52:36 by ccommiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,13 @@ void	ft_getwildcard(t_data *data, va_list *args)
 			get_num = ft_itoa(-w);
 		data->width = 1;
 		ft_bzero((void *)data->twidth, 12);
-		ft_strncat(data->twidth, get_num, ft_strlen(get_num));
+		if (ft_strlen(get_num) <= 12)
+			ft_strncat(data->twidth, get_num, ft_strlen(get_num));
 		return ;
 	}
 	if (w < 0)
 		data->point = 0;
-	else
+	else if (ft_strlen(get_num) <= 12)
 		ft_strncat(data->precision, get_num, ft_strlen(get_num));
 }
 
@@ -60,7 +61,7 @@ void	ft_get_width_zero(t_data *data, char *input, va_list *args, int *i)
 			ft_analyse(data, '0');
 		if (input[*i] == '*' && (ft_analyse(data, '*') == 1))
 			ft_getwildcard(data, args);
-		if (ft_isdigit(input[*i]) && ft_analyse(data, 'w') == 1)
+		if (ft_isdigit(input[*i]) && ft_analyse(data, 'w') == 1 && n <= 12)
 			data->twidth[n++] = input[*i];
 		*i += 1;
 	}
@@ -81,7 +82,10 @@ void	ft_get_precision(t_data *data, char *input, va_list *args, int *i)
 	}
 	while (input[*i] && ft_table(input[*i]) == 0 && ft_isdigit(input[*i]))
 	{
-		data->precision[n++] = input[*i];
+		if (n <= 12)
+			data->precision[n++] = input[*i];
+		else if (n > 12 && data->precision[0] != '\0')
+			ft_bzero((void *)data->precision, 12);
 		*i += 1;
 	}
 }

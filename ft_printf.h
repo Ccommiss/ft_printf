@@ -6,7 +6,7 @@
 /*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:16:32 by ccommiss          #+#    #+#             */
-/*   Updated: 2021/01/07 17:31:18 by ccommiss         ###   ########.fr       */
+/*   Updated: 2021/01/07 18:07:58 by ccommiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ enum			e_fnames
 	fhex_upcase,
 	fpercent,
 	funsigned,
-	wrong
+	fn
 };
 
 typedef void	(*t_func)(void *, ...);
@@ -70,13 +70,13 @@ void			ft_converthex(t_data *data, va_list *args);
 void			ft_converthex_uppercase(t_data *data, va_list *args);
 void			ft_convertadd(t_data *data, va_list *args);
 void			ft_percent(t_data *data, va_list *args);
+void			ft_convert_n(t_data *data, va_list *args);
 
 /*
 **  <UTILS> :  architecture of printf
 */
 
 void			ft_parser(const char *input, t_data *data, va_list *args);
-
 void			str_treat(t_data *data, char *str);
 void			ft_handle_spaces(t_data *data, char *str);
 void			ft_str_left_align(t_data *data, char *str, int prec, int wid);

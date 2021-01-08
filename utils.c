@@ -6,7 +6,7 @@
 /*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 16:08:33 by ccommiss          #+#    #+#             */
-/*   Updated: 2021/01/07 17:23:11 by ccommiss         ###   ########.fr       */
+/*   Updated: 2021/01/07 18:07:36 by ccommiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int		ft_table(char type)
 		return (fhex_upcase);
 	if (type == '%')
 		return (fpercent);
+	if (type == 'n')
+		return (fn);
 	return (0);
 }
 
@@ -101,6 +103,7 @@ void	init_printf(t_data *data)
 	data->f[fhex_upcase] = (t_func)(&ft_converthex_uppercase);
 	data->f[fpercent] = (t_func)(&ft_percent);
 	data->f[funsigned] = (t_func)(&ft_convertunsignedints);
+	data->f[fn] = (t_func)(&ft_convert_n);
 	data->ret = 0;
-	ft_bzero((void *)data->buff, 2049);
+	ft_bzero((void *)data->buff, 2048);
 }

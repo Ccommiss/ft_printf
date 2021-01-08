@@ -6,7 +6,7 @@
 /*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:16:32 by ccommiss          #+#    #+#             */
-/*   Updated: 2021/01/08 16:09:12 by ccommiss         ###   ########.fr       */
+/*   Updated: 2021/01/08 17:33:16 by ccommiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,25 +77,33 @@ void			ft_converthexp(t_data *data, uintptr_t input);
 **  <UTILS> :  architecture of printf
 */
 
+void			init_printf(t_data *data);
+void			ft_reset_flags(t_data *data);
+int				ft_test(t_data *data, int max);
+
+/*
+**  <TYPES> :  analysing format
+*/
+
+int				ft_table(char type);
+int				ft_analyse(t_data *data, char flag);
 void			ft_parser(const char *input, t_data *data, va_list *args);
+
+/*
+**  <FLAGS> :  treating flags
+*/
+
 void			str_treat(t_data *data, char *str);
 void			ft_handle_spaces(t_data *data, char *str);
 void			ft_str_left_align(t_data *data, char *str, int prec, int wid);
 void			ft_str_right_align(t_data *data, char *str, int prec, int wid);
 
 /*
-**  < UTILS.C > :  architecture of printf
+**  < DISPLAY.C > :  diplaying output
 */
 
 void			write_buff(t_data *data, char c);
-void			init_printf(t_data *data);
-void			ft_reset_flags(t_data *data);
-int				ft_table(char type);
-int				ft_analyse(t_data *data, char flag);
-
 void			ft_putstr_spec(int len, char *str);
 int				ft_printf(const char *input, ...);
-
-int				ft_test(t_data *data, int max);
 
 #endif

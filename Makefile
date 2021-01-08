@@ -8,12 +8,14 @@ SRCS = ft_printf.c \
 		handle_x.c \
 		handle_u.c \
 		handle_c.c \
-		handle_n.c \
 		display.c \
 		utils.c
 
+BONUS = handle_n_bonus.c \
+
 FLAGS = -Wall -Werror -Wextra -I./libft/
 OBJS = $(SRCS:.c=.o)
+OBJS_BONUS = $(BONUS:.c=.o)
 NORME = norminette
 LIBS = ./libft/libft.a
 CC = @clang -c -g $(FLAGS)
@@ -48,8 +50,6 @@ LC_ALL=C.UTF-8
 all : $(NAME)
 	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_GRASS)$(_BOLD)%s$(_END)\n" [$(WP)] "✅	Your $(NAME) is ready."
 	@echo "\n $(_UNIC)	By $(_PURPLE)$(_BOLD)ccommiss$(_END), with $(_LETTER)"
-complib:
-	@make -C libft/
 
 $(NAME): $(SRCS) $(OBJS)
 	@make -C libft/
@@ -58,6 +58,11 @@ $(NAME): $(SRCS) $(OBJS)
 	$(CC) $(SRCS) -I$(LIBS)
 	@ar -rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
+
+bonus : all $(BONUS) $(OBJS_BONUS)
+	@ar -rc $(NAME) $(OBJS_BONUS)
+	@ranlib $(NAME)
+	@printf "$(_BOLD)$(_PINK)\n%-30s$(_END) $(_BOLD)$(_GRASS)%s$(_END)\n" [$(WP)] " 🏆	Your $(NAME) is ready, bonuses included."
 
 norme:
 	@$(NORME) $(SRCS) $(BONUS)
@@ -70,7 +75,7 @@ clean:
 cleanup:
 	@make fclean -C libft/
 	@rm -f $(OBJS) $(OBJS_BONUS)
-	@printf "$(_BOLD)$(_PINK)%-30s$(_END) %s\n" [$(NAME)] "Your .o files have been deleted."
+	@printf "$(_BOLD)$(_PINK)%-30s$(_END) %s\n" [$(WP)] "Your .o files have been deleted."
 
 fclean:
 	@make fclean -C libft/
@@ -78,6 +83,7 @@ fclean:
 	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_LIGHT)%s\n$(_END)" [$(WP)] "Your .o files have been deleted."
 	@rm -f $(NAME)
 	@printf "$(_BOLD)$(_PINK)%-30s$(_END) $(_BOLD)%s$(_END)\n" [$(WP)] "🗑️	Your $(NAME) have been deleted."
+
 
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 15:10:04 by ccommiss          #+#    #+#             */
-/*   Updated: 2021/01/07 17:52:36 by ccommiss         ###   ########.fr       */
+/*   Updated: 2021/01/11 10:32:19 by ccommiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,15 @@ int		ft_take_args(t_data *data, char *input, va_list *args)
 
 	i = 0;
 	n = 0;
-	ft_get_width_zero(data, input, args, &i);
+	if (input[i] == '-' || input[i] == '0' || input[i] == '*'
+		|| ft_isdigit(input[i]))
+		ft_get_width_zero(data, input, args, &i);
 	if (input[i] == '.')
 		ft_get_precision(data, input, args, &i);
 	while (input[i] && ft_table(input[i]) == 0)
 		i++;
+	if (input[i] == '\0')
+		i = 0;
 	return (i);
 }
 
@@ -118,8 +122,10 @@ void	ft_parser(const char *input, t_data *data, va_list *args)
 		i++;
 		i = i + ft_take_args(data, (char *)input + i, args);
 		if (ft_table(input[i]))
+		{
 			data->f[ft_table(input[i])](data, args);
-		i++;
+			i++;
+		}
 	}
 	if (input[i] != 0 && (input + i))
 		ft_parser(input + i, data, args);

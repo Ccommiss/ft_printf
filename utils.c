@@ -6,7 +6,7 @@
 /*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 16:08:33 by ccommiss          #+#    #+#             */
-/*   Updated: 2021/01/08 15:20:34 by ccommiss         ###   ########.fr       */
+/*   Updated: 2021/01/11 10:24:36 by ccommiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,27 +126,28 @@ void	ft_reset_flags(t_data *data)
 }
 
 /*
-**	ft_init_printf
+**	ft_strtreat
 **
-**  [Usage] : reinitialize functions tab in t_data
-**	[Call] : at the very beginning of ft_printf
-**	[Arguments] : pointer on t_data structure
+**  [Usage] : handles %p and displays address of the pointer
+**	[Call] : in ft_parser
+**	[Arguments] : pointer on t_data structure and list of args
 **	[Return] : none
 **	[Nb] : none
 */
 
-void	init_printf(t_data *data)
+void	str_treat(t_data *data, char *str)
 {
-	data->len = 0;
-	data->f[fint] = (t_func)(&ft_convertints);
-	data->f[fstr] = (t_func)(&ft_convertstr);
-	data->f[fchar] = (t_func)(&ft_convertchar);
-	data->f[fadd] = (t_func)(&ft_convertadd);
-	data->f[fhex] = (t_func)(&ft_converthex);
-	data->f[fhex_upcase] = (t_func)(&ft_converthex_uppercase);
-	data->f[fpercent] = (t_func)(&ft_percent);
-	data->f[funsigned] = (t_func)(&ft_convertunsignedints);
-	data->f[fn] = (t_func)(&ft_convert_n);
-	data->ret = 0;
-	ft_bzero((void *)data->buff, 2048);
+	int	precision;
+	int	width;
+	int	i;
+	int	str_len;
+
+	i = 0;
+	precision = ft_atoi(data->precision);
+	width = ft_atoi(data->twidth);
+	str_len = ft_strlen(str);
+	if (data->minus == 0)
+		ft_str_right_align(data, str, precision, width);
+	else
+		ft_str_left_align(data, str, precision, width);
 }

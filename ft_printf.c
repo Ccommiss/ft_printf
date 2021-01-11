@@ -6,11 +6,37 @@
 /*   By: ccommiss <ccommiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 15:09:30 by ccommiss          #+#    #+#             */
-/*   Updated: 2021/01/08 15:25:04 by ccommiss         ###   ########.fr       */
+/*   Updated: 2021/01/11 10:25:00 by ccommiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+**	ft_init_printf
+**
+**  [Usage] : reinitialize functions tab in t_data
+**	[Call] : at the very beginning of ft_printf
+**	[Arguments] : pointer on t_data structure
+**	[Return] : none
+**	[Nb] : none
+*/
+
+void	init_printf(t_data *data)
+{
+	data->len = 0;
+	data->f[fint] = (t_func)(&ft_convertints);
+	data->f[fstr] = (t_func)(&ft_convertstr);
+	data->f[fchar] = (t_func)(&ft_convertchar);
+	data->f[fadd] = (t_func)(&ft_convertadd);
+	data->f[fhex] = (t_func)(&ft_converthex);
+	data->f[fhex_upcase] = (t_func)(&ft_converthex_uppercase);
+	data->f[fpercent] = (t_func)(&ft_percent);
+	data->f[funsigned] = (t_func)(&ft_convertunsignedints);
+	data->f[fn] = (t_func)(&ft_convert_n);
+	data->ret = 0;
+	ft_bzero((void *)data->buff, 2048);
+}
 
 /*
 **	ft_printf
@@ -24,7 +50,7 @@
 **	[Nb] : none
 */
 
-int	ft_printf(const char *input, ...)
+int		ft_printf(const char *input, ...)
 {
 	t_data	data;
 	va_list	args;
